@@ -48,7 +48,10 @@ public class AndroidSimpleTest {
 	public void webTest() throws Exception {
 		driver.get("http://www.google.ca");
 		
-		acceptTerm();
+		if (driver.getCapabilities().getCapability("platformVersion").equals("8.0.0")) {
+			
+			acceptTerm();
+		}
 		
 		WebElement searchBox = driver.findElementByName("q");
 		searchBox.sendKeys("CYSSC Ontario \n");
